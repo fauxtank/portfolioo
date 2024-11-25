@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --gradient-1: linear-gradient(45deg, #6366f1, #8b5cf6, #d946ef);
+    --gradient-2: linear-gradient(45deg, #14b8a6, #0ea5e9);
+    --gradient-3: linear-gradient(45deg, #f43f5e, #f59e0b);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-['Space_Grotesk'] overflow-x-hidden;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-1);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/30 shadow-xl;
+  }
+
+  .animated-bg {
+    background: linear-gradient(-45deg, #6366f1, #8b5cf6, #14b8a6, #0ea5e9);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+}
